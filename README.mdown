@@ -1,0 +1,88 @@
+## bundle thankyou - simply gem donations
+
+The idea started out from the question on how can we tip gem authors. 
+How could we say thank you for the effort and time they put in the libraries that we use to build our applications on. 
+
+Obviously this question is as old as Open Source itself and there have been many ideas and projects from way smarter people. 
+But still I think the main problem is that all solutions rely on expensive, limited available, central intermediaries and we are lacking a decent tool for the digital version of "let me buy you a beer". 
+
+Since Bitcoin similiar solitions are around I think we actually could do better. We now have a protocol for transferring value digitally directly between two or more parties. 
+
+## Basic idea
+
+Use bitcoin to automatically send donations to multiple project.
+
+### What the author needs to do:
+
+The gem authoer adds a Bitcoin address to the gemspec (in the metadata hash). This could be a multisig address or whatever the auther prefers. 
+That is all the author needs to do. 
+
+Because the address is in the gemspec we can be sure it is the address the author/maintainer wants the money to go to. 
+
+The author could also decide to dedicate the donations to somebody else. For example the rails gems could say thankyous should go to RailsGirls or similar projects. 
+
+### What the user has to do:
+
+Use this tool and basically run `bundle thankyou` and pay the desired amount. The amount will automatically be split among all the used gems. 
+It is obviously the hard part to convice the user to do that...  
+But I think people do like to send thankyous when there is an easy way and it is directly related when using the gems.
+
+### Advantages
+
+* No signup whatsover
+* User and maintainer do not need to agree on a service (like paypal) to perform the transaction
+* No central directories
+* Based on existing tools (rubygems)
+* Implemented on a "protocol level" - additional service can be built and integrated. (like any existing bitcoin services, subscriptions, etc.)
+* Works internationally
+* One transaction for multiple recipients
+* Usable in the moment where the user interacts with the gems (in the terminal running a bundle command)
+* Minimal fees and all the Bitcoin advantages
+
+## How does it work?
+
+Thanks to the nature of Bitcoin transactions it is possible to send one transaction to multiple recipients (outputs).  
+So we simply have to gather all the recipient Bitcoin addresses from the used gemspecs and make *one single transaction*. 
+Because it is only one single transaction it is cheap and super easy (no need to pay each separately).
+
+We analyze the dependencies at the Gemfile and look up the addresses from the locally installed gems - thus no need for a central directory or similar.  
+Then we ask the user to send any amount he wants. Once the payment is received, we create and publish a new transaction forwarded the whole amount to the recipients. Done. 
+
+Obviously one could envision any fancy user interface and feautres to do that. For example also give the user the option to choose the gems he wants to tip.
+
+*Note*: This could be done with a BIP70 payment reuqest that directly sends the value from the user's wallet to the defined recipients. Sadly it seems many wallers do not support that feature yet. If possible this is obviously better than described above. 
+
+## Questions?
+
+### Why Bitcoin? 
+
+It is pretty much the only adopted solution to build such things.
+
+### But I want to pay with credit card (or whatever else)
+
+Bitcoin is used as a method/"protocol" to transfer value. 
+
+We could provide additional service (for both user and project separately) to better fit their needs - for example different payment methods, subscriptions, etc.
+For example card payments could be easily possible with services like Coinbase.
+
+### But I want to receive payments on my credit card
+
+Again Bitcoin is the "protocol". There are already plenty tools out there that for example give you a visa/master card for spending the received bitcoins. Or bank transfers, or m-pesa mobile money payments, or....
+
+### What is the project status? 
+
+It is more or less in the idea phase. I've experimented with the part to send the transaction and the solution is pretty clear to code... want to join?
+But I think feedback is important right now...
+
+## A comment about money
+
+I am very critical about the human perception of the "payment". I do not want it to feel like I've "paid" somebody for something.   
+The tone/message is super important and it should not be "payment" but a way of saying "thank you"... thus bundle thankyou. 
+
+## Contact
+
+If you have questions, feedback, ideas please contact me... or even better open an issue. 
+
+Michael Bumann  
+[@bumi](http://twitter.com/bumi)  
+hello@michaelbumann.com
