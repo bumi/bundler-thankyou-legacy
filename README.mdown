@@ -1,4 +1,4 @@
-## bundle thankyou - simply gem donations
+## bundle thankyou - simple donation system for ruby gems (and other package managers)
 
 The idea started out from the question on how can we tip gem authors. 
 How could we say thank you for the effort and time they put in the libraries that we use to build our applications on. 
