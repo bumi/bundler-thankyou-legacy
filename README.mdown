@@ -27,6 +27,10 @@ Use this tool and basically run `bundle thankyou` and pay the desired amount. Th
 It is obviously the hard part to convice the user to do that...  
 But I think people do like to send thankyous when there is an easy way and it is directly related when using the gems.
 
+### Video
+
+Have a look at this hacked [video](https://vimeo.com/166398703). Quick and dirty, but might show the basic idea: [https://vimeo.com/166398703](https://vimeo.com/166398703)
+
 ### Advantages
 
 * No signup whatsover
