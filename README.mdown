@@ -10,7 +10,7 @@ Since Bitcoin similiar solitions are around I think we actually could do better.
 
 ## Basic idea
 
-Use bitcoin to automatically send donations to multiple project.
+Use bitcoin to automatically send donations to multiple projects.
 
 ### What the author needs to do:
 
